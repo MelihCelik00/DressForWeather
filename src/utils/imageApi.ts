@@ -24,66 +24,72 @@ const getOutfitImages = async (temperature: number, weatherCode: number, count: 
     const apiKey = process.env.EXPO_PUBLIC_PEXELS_API_KEY;
     
     // Base query for outfit style
-    let query = 'outfit style fashion';
+    let query = 'person wearing';
     
-    // Add season and temperature context
+    // Add specific clothing items based on temperature
     if (temperature <= 5) {
-      query += ' winter freezing cold';
+      query += ' winter coat scarf gloves boots';
     } else if (temperature <= 10) {
-      query += ' cool autumn fall';
+      query += ' light coat sweater jeans boots';
     } else if (temperature <= 15) {
-      query += ' mild spring';
+      query += ' light jacket long sleeve casual';
     } else if (temperature <= 20) {
-      query += ' spring comfortable';
+      query += ' light sweater casual outfit';
     } else if (temperature <= 25) {
-      query += ' warm summer';
+      query += ' tshirt casual summer';
     } else if (temperature <= 30) {
-      query += ' hot summer';
+      query += ' summer shorts tshirt';
     } else {
-      query += ' very hot summer';
+      query += ' summer beach shorts';
     }
 
-    // Add specific weather condition context
+    // Add weather-specific modifiers
     switch (weatherCode) {
       case 0: // Clear sky
       case 1: // Mainly clear
-        query += ' sunny bright day';
+        if (temperature > 20) {
+          query += ' sunglasses summer fashion';
+        } else {
+          query += ' sunny day fashion';
+        }
         break;
       case 2: // Partly cloudy
       case 3: // Overcast
-        query += ' cloudy day';
+        query += ' casual street style';
         break;
       case 45: // Fog
       case 48: // Depositing rime fog
-        query += ' foggy day';
+        query += ' autumn style';
         break;
       case 51: // Light drizzle
       case 53: // Moderate drizzle
       case 55: // Dense drizzle
-        query += ' light rain day';
+        query += ' rain jacket umbrella';
         break;
       case 61: // Slight rain
       case 63: // Moderate rain
       case 65: // Heavy rain
-        query += ' rainy day';
+        query += ' raincoat umbrella boots';
         break;
       case 80: // Slight rain showers
       case 81: // Moderate rain showers
       case 82: // Violent rain showers
-        query += ' rainy weather';
+        query += ' rain outfit umbrella';
         break;
       case 95: // Thunderstorm
       case 96: // Thunderstorm with slight hail
       case 99: // Thunderstorm with heavy hail
-        query += ' stormy weather';
+        query += ' rain protection outfit';
         break;
     }
 
-    // Add context for outfit photos
-    query += ' person wearing clothes street';
+    // Add context to ensure we get fashion/outfit photos
+    query += ' fashion outfit model';
 
     // Add random page parameter to get different images
     const page = Math.floor(Math.random() * 5) + 1;
+    
+    console.log('Search query:', query); // For debugging
     
     const response = await fetch(
       `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=15&page=${page}&orientation=portrait`,
