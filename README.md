@@ -6,11 +6,11 @@ A React Native mobile application that suggests daily outfit combinations based 
 
 <p align="center">
   <img src="assets/screenshots/temperature&outfit.PNG" width="250" alt="Temperature and Initial Outfit Screen" style="margin-right: 10px"/>
-    <img src="assets/screenshots/cloth-recommendation-and-premium-features-card.PNG" width="250" alt="Outfit Recommendations and Premium Features"/>
+  <img src="assets/screenshots/cloth-recommendation-and-premium-features-card.PNG" width="250" alt="Outfit Recommendations and Premium Features"/>
   <img src="assets/screenshots/different-outfit-1.PNG" width="250" alt="Different Outfit Suggestion 1" style="margin-right: 10px"/>
-  <img src="assets/screenshots/different-outfit-2.PNG" width="250" alt="Different Outfit Suggestion 2"/>
 </p>
 <p align="center">
+  <img src="assets/screenshots/different-outfit-2.PNG" width="250" alt="Different Outfit Suggestion 2"/>
   <img src="assets/screenshots/different-outfit-3.PNG" width="250" alt="Different Outfit Suggestion 3" style="margin-right: 10px"/>
 
 </p>
